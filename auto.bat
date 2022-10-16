@@ -1,6 +1,5 @@
-
-echo date > 每日提交.txt
+echo date > daily-commit.txt
 git add .
-git commit -m "每日提交"
+git commit -m "daily-commit"
 git push
 pause
