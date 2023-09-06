@@ -1,0 +1,27 @@
+name: Music Partner Task
+
+on: 
+  push
+
+jobs:
+  auto:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3.5.2
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install Dependencies
+      run: |
+        pip install requests
+        pip install pycryptodome
+    - name: Start Task
+      env:
+        COOKIE_BASE64: ${{ secrets.COOKIE }}
+      run: |
+        TEST=VGVzdA==
+        echo $TEST
+        $TEST | base64 -d | echo
